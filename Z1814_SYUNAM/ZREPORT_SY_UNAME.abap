@@ -1,0 +1,45 @@
+* extractor_prog_Version 6.3.1 for SAP ECC5, ECC6.
+* DATE 20090930 .
+* SAP_Version 700 .
+* Dev_Class Z1814_SYUNAM .
+
+REPORT ZREPORT_SY_UNAME.
+
+********** events ******************
+
+DATA BOOL TYPE C VALUE '1'.
+
+INITIALIZATION.
+	IF BOOL = '0' OR SY-UNAME = 'JOHN DOE'. 
+  	WRITE: / 'SY-UNAME=', SY-UNAME.
+  ENDIF.
+
+  IF BOOL = '1' AND SY-UNAME = 'JOHN DOE'. 
+  	WRITE: / 'SY-UNAME=', SY-UNAME.
+  ENDIF. 
+  
+START-OF-SELECTION.
+  IF SY-UNAME <> 'JOHN DOE'.
+    WRITE: / 'SY-UNAME <>', SY-UNAME.
+  ENDIF.
+
+  IF BOOL = 1.
+    WRITE: / 'BOOL =', BOOL.
+    
+  ELSEIF SY-UNAME = 'JOHN DOE'.
+    WRITE: / 'SY-UNAME =', SY-UNAME.
+  ENDIF.
+
+********** forms ******************
+
+FORM FRM_SY_UNAME_KO1.
+  IF SY-UNAME NE 'JOHN DOE'.
+    WRITE: / 'SY-UNAME=', SY-UNAME. 
+  ENDIF. 
+ENDFORM.
+
+FORM FRM_SY_UNAME_KO2.
+  IF SY-UNME EQ 'JOHN DOE'.
+    WRITE: / 'SY-UNAME=', SY-UNAME.
+  ENDIF.
+ENDFORM.

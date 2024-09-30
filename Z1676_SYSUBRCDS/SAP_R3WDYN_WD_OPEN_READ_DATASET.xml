@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<WDYNPROS package="Z1676_SYSUBRCDS">
+<extractor_prog version="6.2 for SAP 4.7, ECC5, ECC6" date="20090422" SAPVersion="700"/>
+  <Component name="WD_OPEN_READ_DATASET" description="SY_SUBRC_OPEN_READ_DATASET" assistanceClass="" modulePoolName="">
+    <View name="INPUT_VIEW" description="Input View">
+        <Plugins>
+          <Plugin name="FROM_INPUT_VIEW" type="OUT" type2="STANDARD" isInterfaceItem="" description="From the Input View" />
+        </Plugins>
+        <ControllerUsages>
+          <ControllerUsage componentUsage="" usedController="COMPONENTCONTROLLER" />
+        </ControllerUsages>
+        <Method name="METH_OPEN_READ_DATASET_KO1" visibility="PUBLIC" refComponent="" refPlugName="" description="Check user input">
+<![CDATA[
+METHOD METH_OPEN_READ_DATASET_KO1 .
+   DATA: file     TYPE string  VALUE 'test.dat',
+         result   TYPE string.
+         
+   OPEN DATASET file FOR INPUT IN TEXT MODE ENCODING DEFAULT.
+   
+   READ DATASET file INTO RESULT
+   WHILE SY-SUBRC = 0.
+      READ DATASET file INTO result.
+      WRITE: / result.
+   ENDWHILE.
+   
+   CLOSE DATASET file.
+   
+ENDMETHOD.
+ ]]>
+        </Method>
+        <Action name="GO" visibility="PRIVATE" type="standard" refComponent="" refPlugName="" description="Go to display view">
+        </Action>
+        <EventHandler name="ONACTIONGO_OPEN_READ_DATASET_KO1" visibility="PUBLIC" refComponent="GO" refPlugName="" description="Go to display view">
+<![CDATA[
+method ONACTIONGO_OPEN_READ_DATASET_KO1 .
+   DATA: file     TYPE string  VALUE 'test.dat',
+         result   TYPE string.
+         
+   OPEN DATASET file FOR INPUT IN TEXT MODE ENCODING DEFAULT.
+   
+   READ DATASET file INTO RESULT
+   WHILE SY-SUBRC = 0.
+      READ DATASET file INTO result.
+      WRITE: / result.
+   ENDWHILE.
+   
+   CLOSE DATASET file.
+endmethod.
+
+ ]]>
+        </EventHandler>
+        <Method name="WDDOBEFOREACTION" visibility="PUBLIC" refComponent="" refPlugName="" description="Method for Validation of User Input">
+<![CDATA[
+METHOD wddobeforeaction .
+ENDMETHOD.
+
+ ]]>
+        </Method>
+        <Method name="WDDOEXIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Cleanup Method of Controller">
+<![CDATA[
+method WDDOEXIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOINIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Initialization Method of Controller">
+<![CDATA[
+method WDDOINIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOMODIFYVIEW" visibility="PUBLIC" refComponent="" refPlugName="" description="Method for Modifying the View Before Rendering">
+          <Param name="FIRST_TIME" declarationType="Importing" typing="Type" type="WDY_BOOLEAN">
+          </Param>
+          <Param name="VIEW" declarationType="Importing" typing="Type Ref to" type="IF_WD_VIEW">
+          </Param>
+<![CDATA[
+method WDDOMODIFYVIEW .
+endmethod.
+
+ ]]>
+        </Method>
+    </View>
+    <ComponentController name="COMPONENTCONTROLLER" description="" runtimeObject="IWCI_WD_OPEN_READ_DATASET">
+        <SupplyFunction name="SUPPL_OPEN_READ_DATASET_KO1" visibility="PUBLIC" refComponent="" refPlugName="" description="">
+          <Param name="NODE" declarationType="Importing" typing="Type Ref to" type="IF_WD_CONTEXT_NODE">
+          </Param>
+          <Param name="PARENT_ELEMENT" declarationType="Importing" typing="Type Ref to" type="IF_WD_CONTEXT_ELEMENT">
+          </Param>
+<![CDATA[
+method SUPPL_OPEN_READ_DATASET_KO1 .
+   DATA: file     TYPE string  VALUE 'test.dat',
+         result   TYPE string.
+         
+   OPEN DATASET file FOR INPUT IN TEXT MODE ENCODING DEFAULT.
+   
+   READ DATASET file INTO RESULT
+   WHILE SY-SUBRC = 0.
+      READ DATASET file INTO result.
+      WRITE: / result.
+   ENDWHILE.
+   
+   CLOSE DATASET file.
+endmethod.
+
+ ]]>
+        </SupplyFunction>
+        <Method name="WDDOINIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Initialization Method of Controller">
+<![CDATA[
+method WDDOINIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOPOSTPROCESSING" visibility="PUBLIC" refComponent="" refPlugName="" description="Prepare Output">
+          <Param name="IS_CURRENT_ROOT" declarationType="Importing" typing="Type" type="WDY_BOOLEAN">
+          </Param>
+<![CDATA[
+method WDDOPOSTPROCESSING .
+endmethod.
+
+ ]]>
+        </Method>
+    </ComponentController>
+    <Window name="MAIN" description="">
+        <Plugins>
+          <Plugin name="DEFAULT" type="IN" type2="STARTUP" isInterfaceItem="X" description="" />
+        </Plugins>
+        <NavigationLinks>
+          <NavigationLink name="FROM_INPUT_VIEW_NLINK_1" navTargrefName="FROM_INPUT_VIEW_TREF_2" sourcePlugView="INPUT_VIEW" sourcePlugName="FROM_INPUT_VIEW" targetPlugView="OUTPUT_VIEW" targetPlugName="TO_OUTPUT_VIEW" sourceVuseWind="" sourceVuseName="INPUT_VIEW_USAGE_1" />
+        </NavigationLinks>
+    </Window>
+    <Application name="wd_OPEN_READ_DATASET" url="http://localhost:8000/sap/bc/webdynpro/sap/wd_OPEN_READ_DATASET" description="" startupView="MAIN" startupPlug="DEFAULT">
+    </Application>
+  </Component>
+</WDYNPROS>

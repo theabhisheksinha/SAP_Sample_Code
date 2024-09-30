@@ -1,0 +1,5 @@
+* extractor_prog_Version 6.0 for SAP 4.7, ECC5, ECC6.
+* DATE 20081027 .
+* SAP_Version 700 .
+* Dev_Class Z1355_BAPINRAISE .
+FUNCTION-POOL FPOOL_BAPI_NOT_RAISE_TO_ABORT MESSAGE-ID bc_ibf.

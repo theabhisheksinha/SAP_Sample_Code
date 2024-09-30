@@ -1,0 +1,5 @@
+<DevClass=Z1728_WDPNCHNCTRLFLOW>.<Transaction=TCOD_CHANGE_PROG_FLOW1>:<Type=REPORT>,<Program=SAP_REPORT_CHANGE_PROG_FLOW1>,<SelectionScreen=1000>,<Text=Report to be called for diag-1728 purposes>
+* extractor_prog_Version 6.2 for SAP 4.7, ECC5, ECC6.
+* DATE 20090422 .
+* SAP_Version 700 .
+* Dev_Class Z1728_WDPNCHNCTRLFLOW .

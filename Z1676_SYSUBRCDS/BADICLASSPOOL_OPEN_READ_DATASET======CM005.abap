@@ -1,0 +1,22 @@
+* extractor_prog_Version 6.3.1 for SAP ECC5, ECC6.
+* DATE 20090930 .
+* SAP_Version 700 .
+* Dev_Class Z1676_SYSUBRCDS .
+BADI_NAME BADICLASSPOOL_OPEN_READ_DATASET .
+
+METHOD ON_BADI_EVENT_OPEN_READ_DATASET_KO2 .
+
+   OPEN DATASET file FOR INPUT IN TEXT MODE ENCODING DEFAULT.
+   
+   IF SY-SUBRC <> 0.
+     EXIT.
+   ENDIF.
+   
+   DO 2 TIMES.
+     READ DATASET file INTO result.
+     WRITE: / result.
+   ENDDO.
+   
+   CLOSE DATASET file.
+   
+ENDMETHOD.

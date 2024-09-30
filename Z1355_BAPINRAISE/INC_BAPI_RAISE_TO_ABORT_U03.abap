@@ -1,0 +1,24 @@
+* extractor_prog_Version 6.0 for SAP 4.7, ECC5, ECC6.
+* DATE 20081027 .
+* SAP_Version 700 .
+* Dev_Class Z1355_BAPINRAISE .
+BEGIN OF FUNCTION PARAMETERS FCT_BAPI_NOT_RAISE_KO3.
+EXPORTING VALUE(BAPIRETURN) TYPE I .
+END OF FUNCTION PARAMETERS.
+FUNCTION FCT_BAPI_NOT_RAISE_KO3.
+*"----------------------------------------------------------------------
+*"*"Lokale Schnittstelle:
+*"  EXPORTING
+*"     VALUE(BAPIRETURN)
+*"----------------------------------------------------------------------
+  DATA: inst_CLASSPOOL_BAPI_NOT_RAISE TYPE REF TO CLASSPOOL_BAPI_NOT_RAISE
+
+  call function 'FCT_BAPI_NOT_RAISE_KO2'
+       IMPORTING
+            BAPIRETURN = SY-SUBRC.
+
+  CREATE OBJECT inst_CLASSPOOL_BAPI_NOT_RAISE   TYPE CLASSPOOL_BAPI_NOT_RAISE.
+    
+  CALL METHOD inst_CLASSPOOL_BAPI_NOT_RAISE->IF_IFPOOL_BAPI_NOT_RAISE~METH_BAPI_NOT_RAISE_KO1.
+  
+endfunction.

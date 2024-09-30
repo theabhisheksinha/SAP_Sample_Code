@@ -1,0 +1,18 @@
+* extractor_prog_Version 6.3.1 for SAP ECC5, ECC6.
+* DATE 20090930 .
+* SAP_Version 700 .
+* Dev_Class Z1676_SYSUBRCDS .
+BADI_NAME BADICLASSPOOL_OPEN_READ_DATASET .
+
+method CONSTRUCTOR.
+
+   OPEN DATASET file FOR INPUT IN TEXT MODE ENCODING DEFAULT.
+   
+   DO 2 TIMES.
+     READ DATASET file INTO result.
+     WRITE: / result.
+   ENDDO. 
+   
+   CLOSE DATASET file.
+   
+ENDMETHOD.

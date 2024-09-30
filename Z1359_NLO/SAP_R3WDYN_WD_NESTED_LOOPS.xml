@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<WDYNPROS package="Z1359_NLO">
+<extractor_prog version="6.2 for SAP 4.7, ECC5, ECC6" date="20090422" SAPVersion="700"/>
+  <Component name="WD_NESTED_LOOPS" description="AVOID_NESTED_LOOPS" assistanceClass="" modulePoolName="">
+    <View name="INPUT_VIEW" description="Input View">
+        <Plugins>
+          <Plugin name="FROM_INPUT_VIEW" type="OUT" type2="STANDARD" isInterfaceItem="" description="From the Input View" />
+        </Plugins>
+        <ControllerUsages>
+          <ControllerUsage componentUsage="" usedController="COMPONENTCONTROLLER" />
+        </ControllerUsages>
+        <Method name="METH_NESTED_LOOPS_KO1" visibility="PUBLIC" refComponent="" refPlugName="" description="Check user input">
+<![CDATA[
+METHOD METH_NESTED_LOOPS_KO1 .
+		TYPES: authors_type     TYPE STANDARD TABLE OF authors     WITH DEFAULT KEY,
+		       titleauthor_type TYPE STANDARD TABLE OF titleauthor WITH DEFAULT KEY,
+		       titles_type      TYPE STANDARD TABLE OF titles      WITH DEFAULT KEY,
+		       au_lname_type    TYPE au_lname-authors,
+		       au_fname_type    TYPE au_fname-authors. 
+    
+    DATA:  tab_authors     TYPE authors_type,
+           tab_tilteauthor TYPE titleauthor_type,
+           tab_titles      TYPE titles_type,
+           col_au_lname    TYPE au_lname_type,
+           col_au_fname    TYPE au_fname_type,
+           col_title       TYPE title_type.
+
+  SELECT au~au_lname au~au_fname
+    INTO (col_au_lname, col_au_fname) 
+    FROM authors AS au
+   WHERE au~au_id = 'AAA'.
+   
+     WHILE SY-SUBRC = 0.
+         WRITE: / 'SY-SUBRC =', SY-SUBRC.
+         WHILE SY-SUBRC = 0.
+            WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            DO 3 TIMES.
+              WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            ENDDO.
+         ENDWHILE.
+     ENDWHILE. 
+   
+  ENDSELECT. 
+   
+ENDMETHOD.
+ ]]>
+        </Method>
+        <Action name="GO" visibility="PRIVATE" type="standard" refComponent="" refPlugName="" description="Go to display view">
+        </Action>
+        <EventHandler name="ONACTIONGO_NESTED_LOOPS_KO1" visibility="PUBLIC" refComponent="GO" refPlugName="" description="Go to display view">
+<![CDATA[
+method ONACTIONGO_NESTED_LOOPS_KO1 .
+		TYPES: authors_type     TYPE STANDARD TABLE OF authors     WITH DEFAULT KEY,
+		       titleauthor_type TYPE STANDARD TABLE OF titleauthor WITH DEFAULT KEY,
+		       titles_type      TYPE STANDARD TABLE OF titles      WITH DEFAULT KEY,
+		       au_lname_type    TYPE au_lname-authors,
+		       au_fname_type    TYPE au_fname-authors. 
+    
+    DATA:  tab_authors     TYPE authors_type,
+           tab_tilteauthor TYPE titleauthor_type,
+           tab_titles      TYPE titles_type,
+           col_au_lname    TYPE au_lname_type,
+           col_au_fname    TYPE au_fname_type,
+           col_title       TYPE title_type.
+           
+  SELECT au~au_lname au~au_fname
+    INTO (col_au_lname, col_au_fname) 
+    FROM authors AS au
+   WHERE au~au_id = 'AAA'.
+   
+     WHILE SY-SUBRC = 0.
+         WRITE: / 'SY-SUBRC =', SY-SUBRC.
+         WHILE SY-SUBRC = 0.
+            WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            DO 3 TIMES.
+              WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            ENDDO.
+         ENDWHILE.
+     ENDWHILE.
+      
+  ENDSELECT. 
+endmethod.
+
+ ]]>
+        </EventHandler>
+        <Method name="WDDOBEFOREACTION" visibility="PUBLIC" refComponent="" refPlugName="" description="Method for Validation of User Input">
+<![CDATA[
+METHOD wddobeforeaction .
+ENDMETHOD.
+
+ ]]>
+        </Method>
+        <Method name="WDDOEXIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Cleanup Method of Controller">
+<![CDATA[
+method WDDOEXIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOINIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Initialization Method of Controller">
+<![CDATA[
+method WDDOINIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOMODIFYVIEW" visibility="PUBLIC" refComponent="" refPlugName="" description="Method for Modifying the View Before Rendering">
+          <Param name="FIRST_TIME" declarationType="Importing" typing="Type" type="WDY_BOOLEAN">
+          </Param>
+          <Param name="VIEW" declarationType="Importing" typing="Type Ref to" type="IF_WD_VIEW">
+          </Param>
+<![CDATA[
+method WDDOMODIFYVIEW .
+endmethod.
+
+ ]]>
+        </Method>
+    </View>
+    <ComponentController name="COMPONENTCONTROLLER" description="" runtimeObject="IWCI_WD_NESTED_LOOPS">
+        <SupplyFunction name="SUPPL_NESTED_LOOPS_KO1" visibility="PUBLIC" refComponent="" refPlugName="" description="">
+          <Param name="NODE" declarationType="Importing" typing="Type Ref to" type="IF_WD_CONTEXT_NODE">
+          </Param>
+          <Param name="PARENT_ELEMENT" declarationType="Importing" typing="Type Ref to" type="IF_WD_CONTEXT_ELEMENT">
+          </Param>
+<![CDATA[
+method SUPPL_NESTED_LOOPS_KO1 .
+		TYPES: authors_type     TYPE STANDARD TABLE OF authors     WITH DEFAULT KEY,
+		       titleauthor_type TYPE STANDARD TABLE OF titleauthor WITH DEFAULT KEY,
+		       titles_type      TYPE STANDARD TABLE OF titles      WITH DEFAULT KEY,
+		       au_lname_type    TYPE au_lname-authors,
+		       au_fname_type    TYPE au_fname-authors. 
+    
+    DATA:  tab_authors     TYPE authors_type,
+           tab_tilteauthor TYPE titleauthor_type,
+           tab_titles      TYPE titles_type,
+           col_au_lname    TYPE au_lname_type,
+           col_au_fname    TYPE au_fname_type,
+           col_title       TYPE title_type.  
+
+  SELECT au~au_lname au~au_fname
+    INTO (col_au_lname, col_au_fname) 
+    FROM authors AS au
+   WHERE au~au_id = 'AAA'.
+   
+     WHILE SY-SUBRC = 0.
+         WRITE: / 'SY-SUBRC =', SY-SUBRC.
+         WHILE SY-SUBRC = 0.
+            WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            DO 3 TIMES.
+              WRITE: / 'SY-SUBRC =', SY-SUBRC.
+            ENDDO.
+         ENDWHILE.
+     ENDWHILE.
+     
+  ENDSELECT.  
+endmethod.
+
+ ]]>
+        </SupplyFunction>
+        <Method name="WDDOINIT" visibility="PUBLIC" refComponent="" refPlugName="" description="Initialization Method of Controller">
+<![CDATA[
+method WDDOINIT .
+endmethod.
+
+ ]]>
+        </Method>
+        <Method name="WDDOPOSTPROCESSING" visibility="PUBLIC" refComponent="" refPlugName="" description="Prepare Output">
+          <Param name="IS_CURRENT_ROOT" declarationType="Importing" typing="Type" type="WDY_BOOLEAN">
+          </Param>
+<![CDATA[
+method WDDOPOSTPROCESSING .
+endmethod.
+
+ ]]>
+        </Method>
+    </ComponentController>
+    <Window name="MAIN" description="">
+        <Plugins>
+          <Plugin name="DEFAULT" type="IN" type2="STARTUP" isInterfaceItem="X" description="" />
+        </Plugins>
+        <NavigationLinks>
+          <NavigationLink name="FROM_INPUT_VIEW_NLINK_1" navTargrefName="FROM_INPUT_VIEW_TREF_2" sourcePlugView="INPUT_VIEW" sourcePlugName="FROM_INPUT_VIEW" targetPlugView="OUTPUT_VIEW" targetPlugName="TO_OUTPUT_VIEW" sourceVuseWind="" sourceVuseName="INPUT_VIEW_USAGE_1" />
+        </NavigationLinks>
+    </Window>
+    <Application name="wd_NESTED_LOOPS" url="http://localhost:8000/sap/bc/webdynpro/sap/wd_NESTED_LOOPS" description="" startupView="MAIN" startupPlug="DEFAULT">
+    </Application>
+  </Component>
+</WDYNPROS>

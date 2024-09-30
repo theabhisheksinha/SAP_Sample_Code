@@ -1,0 +1,5 @@
+<DevClass=Z1814_SYUNAM>.<Transaction=TCOD_SYUNAM1>:<Type=REPORT>,<Program=ZREPORT_SY_UNAME>,<SelectionScreen=1000>,<Text=Report to be called for diag-1814 purposes>
+* extractor_prog_Version 6.2 for SAP 4.7, ECC5, ECC6.
+* DATE 20090422 .
+* SAP_Version 700 .
+* Dev_Class Z1814_SYUNAM .

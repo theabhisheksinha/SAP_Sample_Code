@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<BAPIS package="Z1355_BAPINRAISE">
+<extractor_prog version="6.0 for SAP 4.7, ECC5, ECC6" date="20081027" SAPVersion="700"/>
+  <BAPI name="BAPI_NOT_RAISE" description="BAPIs must not cause the program to abort or terminate" type="SRAISE">
+    <Attribute name="BookingList" instanceDependant="N" description="Bookings"/>
+    <Attribute name="FlightID" instanceDependant="N" description="Flight ID"/>
+    <KeyField name="AirlineID" instanceDependant="N" description="Airline Carrier"/>
+    <KeyField name="ConnectionID" instanceDependant="N" description="Connection number"/>
+    <KeyField name="FlightDate" instanceDependant="N" description="Flight date"/>
+    <Method name="BAPI_NOT_RAISE_KO1" instanceDependant="N" description="Availability" functionModule="FCT_BAPI_NOT_RAISE_KO1">
+      <Parameter name="BAPIReturn" position="0001" description="Return Messages" paramType="M" import="N" export="Y" table="N" mandatory="N"/>
+    </Method>
+    <Method name="BAPI_NOT_RAISE_KO2" instanceDependant="N" description="Find details" functionModule="FCT_BAPI_NOT_RAISE_KO2">
+      <Parameter name="BAPIReturn" position="0001" description="Return Messages" paramType="M" import="N" export="Y" table="N" mandatory="N"/>
+    </Method>
+    <Method name="BAPI_NOT_RAISE_KO3" instanceDependant="Y" description="List of flights" functionModule="FCT_BAPI_NOT_RAISE_KO3">
+      <Parameter name="BAPIReturn" position="0001" description="Return Messages" paramType="M" import="N" export="Y" table="N" mandatory="N"/>
+    </Method>
+    <Method name="BAPI_NOT_RAISE_OK1" instanceDependant="N" description="Availability" functionModule="FCT_BAPI_NOT_RAISE_OK1">
+      <Parameter name="BAPIReturn" position="0001" description="Return Messages" paramType="M" import="N" export="Y" table="N" mandatory="N"/>
+    </Method>
+    <Method name="BAPI_NOT_RAISE_OK2" instanceDependant="N" description="Find details" functionModule="FCT_BAPI_NOT_RAISE_OK2">
+      <Parameter name="BAPIReturn" position="0001" description="Return Messages" paramType="M" import="N" export="Y" table="N" mandatory="N"/>
+    </Method>
+  </BAPI>
+</BAPIS>
